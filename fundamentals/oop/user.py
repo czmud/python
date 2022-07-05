@@ -37,11 +37,17 @@ class user():
 elmer = user('Elmer', 'Fudd', 'elmer@fuddindustries.com', 35)
 
 elmer.display_info() # print original instance of user elmer
-
 elmer.spend_points(40) # shows cannot spend if not a rewards member
-
 elmer.enroll() # enroll elmer in gold card rewards program
 elmer.enroll() # show that elmer cannot enroll twice
 elmer.enroll() # it doesn't matter how many more times he tries, still can only enroll once
-elmer.spend_points(75) # elmer spends 75 points on supplies
+elmer.spend_points(50) # elmer spends 50 points on supplies
+
+bugs = user('Bugs', 'Bunny', 'bbunny2@gmail.com', 12)
+
+bugs.enroll()
+bugs.spend_points(800) # user bugs cannot spend more points than he has
+bugs.spend_points(80)
+
 elmer.display_info() # print information for updated instance of user elmer
+bugs.display_info() # print information for updated instance of user bugs
