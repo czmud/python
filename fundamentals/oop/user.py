@@ -13,15 +13,15 @@ class user():
         # method to print user info
         for key, val in self.__dict__.items():
             print(key+": "+str(val))
+        return self
     def enroll(self):
         # method to enroll user in rewards program, checks if already enrolled
         if not self.is_rewards_member:
             self.is_rewards_member = True
             self.gold_card_points += 200
-            return True
         else:
             print('User already a gold card rewards member.')
-            return False
+        return self
     def spend_points(self, amount):
         # method to spend rewards points
         if self.is_rewards_member:
@@ -31,23 +31,28 @@ class user():
                 print('Spend amount greater than User\'s gold card balance')
         else:
             print('User is not a gold card rewards member.')
+        return self
 
 
 # test example to show functionality of user class
 elmer = user('Elmer', 'Fudd', 'elmer@fuddindustries.com', 35)
-
-elmer.display_info() # print original instance of user elmer
-elmer.spend_points(40) # shows cannot spend if not a rewards member
-elmer.enroll() # enroll elmer in gold card rewards program
-elmer.enroll() # show that elmer cannot enroll twice
-elmer.enroll() # it doesn't matter how many more times he tries, still can only enroll once
-elmer.spend_points(50) # elmer spends 50 points on supplies
-
 bugs = user('Bugs', 'Bunny', 'bbunny2@gmail.com', 12)
 
-bugs.enroll()
-bugs.spend_points(800) # user bugs cannot spend more points than he has
-bugs.spend_points(80)
+elmer.enroll().spend_points(50).display_info()
+bugs.enroll().spend_points(80).display_info()
 
-elmer.display_info() # print information for updated instance of user elmer
-bugs.display_info() # print information for updated instance of user bugs
+
+#--------------------Previous method calls-----------------------------------------------#
+# elmer.display_info() # print original instance of user elmer
+# elmer.spend_points(40) # shows cannot spend if not a rewards member
+# elmer.enroll() # enroll elmer in gold card rewards program
+# elmer.enroll() # show that elmer cannot enroll twice
+# elmer.enroll() # it doesn't matter how many more times he tries, still can only enroll once
+# elmer.spend_points(50) # elmer spends 50 points on supplies
+
+# bugs.enroll()
+# bugs.spend_points(800) # user bugs cannot spend more points than he has
+# bugs.spend_points(80)
+
+# elmer.display_info() # print information for updated instance of user elmer
+# bugs.display_info() # print information for updated instance of user bugs
