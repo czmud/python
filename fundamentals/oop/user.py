@@ -1,7 +1,7 @@
 # create a user class with specified attributes and methods
 import inspect
 
-class user():
+class User():
     def __init__(self, first_name, last_name, email, age):
         self.first_name = first_name
         self.last_name = last_name
@@ -35,8 +35,8 @@ class user():
 
 
 # test example to show functionality of user class
-elmer = user('Elmer', 'Fudd', 'elmer@fuddindustries.com', 35)
-bugs = user('Bugs', 'Bunny', 'bbunny2@gmail.com', 12)
+elmer = User('Elmer', 'Fudd', 'elmer@fuddindustries.com', 35)
+bugs = User('Bugs', 'Bunny', 'bbunny2@gmail.com', 12)
 
 elmer.enroll().spend_points(50).display_info()
 bugs.enroll().spend_points(80).display_info()
