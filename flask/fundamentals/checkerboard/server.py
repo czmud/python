@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+@app.route('/', defaults={'x':8, 'y':8})
 @app.route('/play/', defaults={'x':8, 'y':8})
 @app.route('/play/<int:x>/', defaults={'y':8})
 @app.route('/play/<int:x>/<int:y>/')
