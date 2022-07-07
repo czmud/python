@@ -1,0 +1,27 @@
+h1{
+    font-size: 48;
+    margin-top: 60px;
+}
+
+.con-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.block{
+    background-color: deepskyblue;
+    height: 250px;
+    width: 250px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.con-blocks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+}
