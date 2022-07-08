@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the great number game!</h1>
+    <h2>I am thinking of an integer between 1 and 1000<br>Take a guess!<br></h2>
+    
+    Attempts: {{count}}
+    <br><br>
+    {{high}}
+    <br><br>
+    {{game_message}}
+    <br><br>
+    {{low}}
+    <br><br>
+    {% if is_game_over %}
+    <form action='/reset/' method='post'>
+        <input type='submit' value='Play again'>
+    </form>
+
+    {% else %}
+    
+        <form action='/guess/' method='post'>
+            <label for='name'>Guess:</label>
+            <input type='number' name='guess_val'>
+            <input type='submit' value='Submit'>
+        </form>
+
+    {% endif %}
+
+</body>
+</html>
