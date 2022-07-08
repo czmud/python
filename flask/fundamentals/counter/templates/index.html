@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Counter Session Data</title>
+</head>
+<body>
+    <h1>Real Visits</h1>
+    <h2>{{visit_count}}</h2>
+    <h1>Counter</h1>
+    <h2>{{count}}</h2>
+    <form action='/increment/' method='post'>
+        <input type='submit' value='Increment by 2'>
+    </form><br>
+    <form action='/destroy_session/' method='post'>
+        <input type='submit' value='Clear'>
+    </form><br>
+    <form action='/set_counter/' method='post'>
+        <label for='name'>Set Count Value:</label>
+        <input type='number' name='count_val'>
+        <input type='submit' value='Submit'>
+    </form>
+</body>
+</html>
