@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dojo Survey</h1>
+
+    <form action='/collect_results' method='post'>
+        <label for='full_name'>Your Name:</label>
+        <input type='text' name='full_name' required><br>
+        <label for="city">Location:</label>
+        <select name="city">
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Chicago">Chicago</option>
+        </select><br>
+        <label for="programming_language">Location:</label>
+        <select name="programming_language">
+            <option value="Java Script">Java Script</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+        </select><br>
+        <label for='comment'>Comment (optional):</label>
+        <input type='text' name='comment'><br>
+        <label for='follow_up'>Can we follow up with you?</label>
+        <input type='checkbox' name='follow_up'><br>
+        <label for='happy'>Are you happy?</label>
+        <input type='radio' name='happy'><br>
+        <input type='submit' value='Submit'>
+    </form>
+
+</body>
+</html>
