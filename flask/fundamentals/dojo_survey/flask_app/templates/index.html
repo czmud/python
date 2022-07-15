@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
+    <h1>Dojo Survey</h1>
+
+    
+    <form action='/collect_results' method='post'>
+        <label for='name'>Your Name:</label>
+        <input type='text' name='name' value="{{session.name}}" required><br>
+        <label for="location">Location:</label>
+        <select name="location" required>
+            <!-- hard coded these select fields because didn't want to bother building dict/class to iterate through -->
+            <!-- proof of concept -->
+            {% if session.location == "San Jose" %}
+            <option value="">select city</option>
+            <option value="San Jose" selected>San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Chicago">Chicago</option>
+            {% elif session.location == "Seattle" %}
+            <option value="">select city</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle" selected>Seattle</option>
+            <option value="Chicago">Chicago</option>
+            {% elif session.location == "Chicago" %}
+            <option value="">select city</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Chicago" selected>Chicago</option>
+            {% else %}
+            <option value="" selected>select city</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Chicago">Chicago</option>
+            {% endif %}
+        </select><br>
+        <label for="language">Programming Language:</label>
+        <select name="language">
+            {% if session.language == "Java Script" %}
+            <option value="">select language</option>
+            <option value="Java Script" selected>Java Script</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            {% elif session.language == "Python" %}
+            <option value="">select language</option>
+            <option value="Java Script">Java Script</option>
+            <option value="Python" selected>Python</option>
+            <option value="C#">C#</option>
+            {% elif session.language == "C#" %}
+            <option value="">select language</option>
+            <option value="Java Script">Java Script</option>
+            <option value="Python">Python</option>
+            <option value="C#" selected>C#</option>
+            {% else %}
+            <option value="" selected>select language</option>
+            <option value="Java Script">Java Script</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            {% endif %}
+        </select><br>
+        <label for='comment'>Comment:</label>
+        <input type='text' name='comment' value="{{session.comment}}" required><br>
+        <input type='submit' value='Submit'>
+    </form>
+
+</body>
+</html>

@@ -9,10 +9,12 @@
 <body>
     <h1>Dojo Survey Results</h1>
     <h2>Submitted Info:</h2><br>
-    {% for key in session.keys()%}
-    {{key}}: {{session[key]}}<br>
-    {% endfor %}
-    <br>
+        {{ survey.id }}<br>
+        {{ survey.name }}<br>
+        {{ survey.location }}<br>
+        {{ survey.language }}<br>
+        {{ survey.comment }}<br>
+    <br><br><br>
     <a href="/">Go Back</a>
 </body>
 </html>
