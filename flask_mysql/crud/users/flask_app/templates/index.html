@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Users</title>
+    <title>Read (All)</title>
 </head>
 <body>
     <h1>All Users</h1>
-    <a href="/users/new">Add a New User</a><br>
+    <a href="/users/new">Add a New User</a><br><br><br>
     <table>
         <tr>
             <th>ID</th>
             <th>Full Name</th>
             <th>Email</th>
             <th>Created At</th>
+            <th>Actions</th>
         </tr>
     {% for user in users %}
         <tr>
@@ -22,9 +23,14 @@
             <td>{{user.full_name}}</td>
             <td>{{user.email}}</td>
             <td>{{user.created_at}}</td>
+            <td>
+                <a href="/users/{{user.id}}">Show</a>
+                <a href="/users/{{user.id}}/edit">Edit</a>
+                <form action="/users/{{user.id}}/destroy" method="post"><a href="#" onclick="this.parentNode.submit()">Delete</a></form>
+            </td>
         </tr>
     {% endfor %}
-    </table>
+    </table><br><br>
 
 </body>
 </html>

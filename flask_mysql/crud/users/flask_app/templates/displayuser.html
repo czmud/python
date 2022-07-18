@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (One)</title>
+</head>
+<body>
+    <h1>User {{user.id}}</h1>
+    <a href="/users">Home</a><br><br><br>
+    First Name: {{user.first_name}}<br>
+    Last Name: {{user.last_name}}<br>
+    Email: {{user.email}}<br><br><br>
+    <a href="/users/{{user.id}}/edit">Edit</a>
+    <form action="/users/{{user.id}}/destroy" method="post"><a href="#" onclick="this.parentNode.submit()">Delete</a></form>
+</body>
+</html>

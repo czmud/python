@@ -20,6 +20,20 @@ class User:
             users.append( cls(user) )
         return users
     @classmethod
+    def get_user_by_id( cls, data ):
+        query = "SELECT * FROM users WHERE id=%(id)s"
+        results = connectToMySQL('users').query_db( query, data )
+        user = cls(results[0])
+        return user
+    @classmethod
     def save( cls, data ):
         query = "INSERT INTO users ( first_name , last_name , email ) VALUES ( %(first_name)s , %(last_name)s , %(email)s );"
+        return connectToMySQL('users').query_db( query, data )
+    @classmethod
+    def edit( cls, data ):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(id)s"
+        return connectToMySQL('users').query_db( query, data )
+    @classmethod
+    def delete_user_by_id( cls, data ):
+        query = "DELETE FROM users WHERE id = %(id)s;"
         return connectToMySQL('users').query_db( query, data )
