@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+</head>
+<body>
+    <h1>login page</h1>
+    <br><br>
+    <h2>login:</h2>
+
+    {% with messages = get_flashed_messages(category_filter=["login"]) %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form action='/user_login' method='post'>
+        <label for='email'>email:</label>
+        <input type='text' name='email' value="{{session.email_login}}" required><br>
+        <label for='password'>password:</label>
+        <input type='password' name='password' required><br>
+        <input type='submit' value='Submit'>
+    </form>
+
+    <br><br><br><br>
+    <h2>create account:</h2>
+
+    {% with messages = get_flashed_messages(category_filter=["create"]) %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form action='/create_user' method='post'>
+        <label for='first_name'>first name:</label>
+        <input type='text' name='first_name' value="{{session.first_name}}" required><br>
+        <label for='last_name'>last name:</label>
+        <input type='text' name='last_name' value="{{session.last_name}}" required><br>
+        <label for='email'>email:</label>
+        <input type='text' name='email' value="{{session.email}}" required><br>
+        <label for='password'>password:</label>
+        <input type='password' name='password' required><br>
+        <label for='password_confirm'>confirm password:</label>
+        <input type='password' name='password_confirm' required><br>
+        <input type='submit' value='Submit'>
+    </form>
+
+</body>
+</html>
