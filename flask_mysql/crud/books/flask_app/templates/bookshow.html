@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Show</title>
+</head>
+<body>
+    <h1>Title: {{books.title}}</h1>
+    <h2>Favorited by:</h2>
+    {% for user in books.users %}
+        {{user.full_name}}<br>
+    {% endfor %}
+    <br><br><br>
+
+    <h1>Add Favorite</h1>
+    <form action='/add_book_favorite' method='post'>
+        <input type="hidden" name="book_id" value="{{books.id}}">
+        <label for='user_id'>Title:</label>
+        <select name="user_id" required>
+            {% for user in books.users_not_liked %}
+            <option value="{{user.id}}">{{user.full_name}}</option>
+            {% endfor %}
+        </select>
+        <input type='submit' value='Add'>
+    </form>
+
+
+
+    <br><br><br>
+    <a href="/authors">Home</a>
+
+</body>
+</html>
