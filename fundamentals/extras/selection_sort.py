@@ -6,8 +6,14 @@ def selection_sort(array):
     
     for i in range(0,len(array)-1):
         temp = array[i]
-        for j in range(1,len(array)):
+        k = i
+        for j in range(i+1,len(array)):
             if array[j] < temp:
-                temp = temp[j]
+                k = j
+                temp = array[k]
+        array[k] = array[i]
+        array[i] = temp
 
     return array
+
+print(selection_sort(test_array))
