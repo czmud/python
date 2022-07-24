@@ -17,6 +17,7 @@ def insertion_sort(list):
                 list[j], list[j+1] = list[j+1], list[j]
     return list
 
+
 print(insertion_sort(test_list1))
 print(insertion_sort(test_list2))
 print(insertion_sort(test_list3))
