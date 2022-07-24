@@ -1,22 +1,22 @@
 
 
-test_array1 = [5, 6, 9, 4, 0, 1, 1, 22, 17, 2, 1, 5]
-test_array2 = [7]
-test_array3 = [9, 5, 5, 5, 5, 5, 5]
+test_list1 = [5, 6, 9, 4, 0, 1, 1, 22, 17, 2, 1, 5]
+test_list2 = [7]
+test_list3 = [9, 5, 5, 5, 5, 5, 5]
 
-def selection_sort(array):
-    if len(array) == 1:
-        return array
+def selection_sort(list):
+    if len(list) == 1:
+        return list
 
-    for i in range(0,len(array)-1):
-        temp = array[i]
+    for i in range(0,len(list)-1):
+        temp = list[i]
         k = i
-        for j in range(i+1,len(array)):
-            if array[j] < array[k]:
+        for j in range(i+1,len(list)):
+            if list[j] < list[k]:
                 k = j
-        array[k], array[i] = array[i], array[k]
-    return array
+        list[k], list[i] = list[i], list[k]
+    return list
 
-print(selection_sort(test_array1))
-print(selection_sort(test_array2))
-print(selection_sort(test_array3))
+print(selection_sort(test_list1))
+print(selection_sort(test_list2))
+print(selection_sort(test_list3))
